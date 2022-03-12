@@ -20,10 +20,10 @@ export const requestFailedAction = (error) => ({
   error,
 });
 
-const getNewToken = async (dispatch, getState) => {
+const getNewToken = async (dispatch, getState, settings) => {
   await dispatch(getTokenThunk());
   const { token } = getState();
-  const newResponse = await fetchTriviaApi(token);
+  const newResponse = await fetchTriviaApi(token, settings);
   return newResponse;
 };
 
@@ -32,9 +32,10 @@ export const getQuestionsThunk = () => async (dispatch, getState) => {
     dispatch(requestApiAction());
     let response = {};
     const { token } = getState();
-    response = await fetchTriviaApi(token);
+    const { settings } = getState();
+    response = await fetchTriviaApi(token, settings);
     if (response.response_code === EXPIRED_TOKEN_CODE) {
-      response = await getNewToken(dispatch, getState);
+      response = await getNewToken(dispatch, getState, settings);
     }
     return dispatch(getQuestionsAction(response.results));
   } catch (error) {

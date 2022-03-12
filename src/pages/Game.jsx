@@ -8,7 +8,6 @@ import Loading from '../components/Loading';
 import { calculateQuestionScore, shuffleArray } from '../utils/helpers';
 import {
   DECREASE_TIME,
-  QUANTITY_OF_QUESTIONS,
   TOTAL_TIME,
 } from '../utils/constants';
 import { updatePlayerStatsAction } from '../actions/player';
@@ -108,8 +107,9 @@ class Game extends Component {
     const {
       history,
       player: { name, score, gravatarEmail },
+      settings: { amount },
     } = this.props;
-    if (currentIndex < QUANTITY_OF_QUESTIONS) {
+    if (currentIndex + 1 < amount) {
       this.setState({
         currentIndex: currentIndex + 1,
         seconds: 30,
@@ -152,20 +152,19 @@ class Game extends Component {
 Game.propTypes = {
   getQuestions: func,
   updatePlayerStats: func,
-  token: string,
   isFetching: bool,
   error: string,
   questions: arrayOf(object),
 }.isRequired;
 
-const mapStateToProps = ({ player, token, game }) => ({
+const mapStateToProps = ({ player, game, settings }) => ({
   player,
-  token,
   game,
+  settings,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getQuestions: (token) => dispatch(getQuestionsThunk(token)),
+  getQuestions: () => dispatch(getQuestionsThunk()),
   updatePlayerStats: (questionScore) => dispatch(updatePlayerStatsAction(questionScore)),
 });
 
