@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setGameSettingsAction } from '../actions/settings';
 import ConfigForm from '../components/ConfigForm';
+import MainWrapper from '../styles/elements/MainWrapper';
+import Title from '../styles/elements/Title';
 
 class Config extends Component {
   state = {
@@ -30,14 +32,14 @@ class Config extends Component {
 
   render() {
     return (
-      <main>
-        <h1 data-testid="settings-title">Config</h1>
+      <MainWrapper>
+        <Title data-testid="settings-title">Settings</Title>
         <ConfigForm
           { ...this.state }
           handleChange={ this.handleChange }
           handleSubmit={ this.handleSubmit }
         />
-      </main>
+      </MainWrapper>
     );
   }
 }

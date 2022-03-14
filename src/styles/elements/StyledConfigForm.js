@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const StyledConfigForm = styled.form`
   width: 100%;
@@ -8,7 +8,7 @@ const StyledConfigForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-top: 40px;
+  margin-top: 10px;
   background-color: var(--purple-primary);
   box-shadow: 8px 8px 40px 10px rgb(0 0 0 / 50%);
   border: 3px solid var(--purple-border);
@@ -27,6 +27,6 @@ const StyledConfigForm = styled.form`
   button {
     align-self: center;
   }
-`
+`;
 
-export default StyledConfigForm
+export default StyledConfigForm;
