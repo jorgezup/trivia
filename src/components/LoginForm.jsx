@@ -1,7 +1,9 @@
 import { string, bool, func } from 'prop-types';
 import React from 'react';
+import { FaPlay } from 'react-icons/fa';
 import Input from './Input';
 import Button from './Button';
+import StyledForm from '../styles/elements/StyledForm';
 
 const LoginForm = ({
   name,
@@ -10,7 +12,7 @@ const LoginForm = ({
   handleChange,
   handleSubmit,
 }) => (
-  <form onSubmit={ handleSubmit }>
+  <StyledForm onSubmit={ handleSubmit }>
     <Input
       type="text"
       label="Nome"
@@ -29,11 +31,13 @@ const LoginForm = ({
     />
     <Button
       type="submit"
-      value="Play"
+      value={ <FaPlay /> }
       data-testid="btn-play"
       disabled={ isBtnDisabled }
-    />
-  </form>
+    >
+      Play
+    </Button>
+  </StyledForm>
 );
 
 LoginForm.propTypes = {

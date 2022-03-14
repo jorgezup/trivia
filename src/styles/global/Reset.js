@@ -5,6 +5,7 @@ const Reset = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Fredoka One', cursive;
   }
 
   :root {
@@ -14,9 +15,11 @@ const Reset = createGlobalStyle`
     --purple-border: #A099FF;
     --blue-primary: #2C2C9B;
     --blue-secondary: #312FAC;
+    --blue-tertiary: #332d7a;
     --yellow-primary: #FFBE55;
     --yellow-secondary: #FFE05F;
     --red-primary: #E02D5C;
+    --icon-disabled: #8684ce;
   }
 
   body {
@@ -24,7 +27,6 @@ const Reset = createGlobalStyle`
     height: 100vh;
     color: white;
     font-size: 14px;
-    font-family: 'Fredoka One', cursive;
     background-image: url('https://stopots.com/images/background.png');
     background-repeat: no-repeat;
     background-position: center;

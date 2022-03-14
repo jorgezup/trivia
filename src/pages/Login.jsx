@@ -6,6 +6,8 @@ import { getTokenThunk } from '../actions/token';
 import LoginForm from '../components/LoginForm';
 import Button from '../components/Button';
 import { setPlayerAction } from '../actions/player';
+import MainWrapper from '../styles/elements/MainWrapper';
+import LoginWrapper from '../styles/elements/LoginWrapper';
 
 class Login extends Component {
   state = {
@@ -41,19 +43,23 @@ class Login extends Component {
 
   render() {
     return (
-      <>
-        <LoginForm
-          { ...this.state }
-          handleChange={ this.handleChange }
-          handleSubmit={ this.handleSubmit }
-        />
-        <Button
-          type="button"
-          value={ <BsFillGearFill /> }
-          data-testid="btn-settings"
-          onClick={ this.handleClick }
-        />
-      </>
+      <MainWrapper>
+        <LoginWrapper>
+          <LoginForm
+            { ...this.state }
+            handleChange={ this.handleChange }
+            handleSubmit={ this.handleSubmit }
+          />
+          <Button
+            type="button"
+            value={ <BsFillGearFill /> }
+            data-testid="btn-settings"
+            onClick={ this.handleClick }
+          >
+            Settings
+          </Button>
+        </LoginWrapper>
+      </MainWrapper>
     );
   }
 }
