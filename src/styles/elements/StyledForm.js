@@ -6,6 +6,7 @@ const StyledForm = styled.form`
   align-items: center;
   justify-content: center;
   gap: 10px;
+  font-size: 16px;
 
   & button {
     margin-top: 10px;;

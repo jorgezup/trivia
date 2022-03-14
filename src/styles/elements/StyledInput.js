@@ -7,6 +7,7 @@ const StyledInput = styled.input`
   margin-top: 10px;
   background-color: var(--purple-primary);
   border-bottom: 1px solid var(--purple-border);
+  font-size: 16px;
   letter-spacing: 1.4px;
   color: white;
   transition: 0.2s border ease-in;
