@@ -8,6 +8,7 @@ import Button from '../components/Button';
 import { setPlayerAction } from '../actions/player';
 import MainWrapper from '../styles/elements/MainWrapper';
 import LoginWrapper from '../styles/elements/LoginWrapper';
+import Logo from '../styles/elements/Logo';
 
 class Login extends Component {
   state = {
@@ -44,6 +45,7 @@ class Login extends Component {
   render() {
     return (
       <MainWrapper>
+        <Logo>Trivia</Logo>
         <LoginWrapper>
           <LoginForm
             { ...this.state }

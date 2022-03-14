@@ -1,12 +1,13 @@
 import { string, array } from 'prop-types';
 import React from 'react';
+import StyledSelect from '../styles/elements/StyledSelect';
 
 const Select = (props) => {
   const { label, name, options } = props;
   return (
     <label htmlFor={ name }>
       {label}
-      <select { ...props }>
+      <StyledSelect { ...props }>
         {options.map((option) => {
           if (typeof option === 'object') {
             return (
@@ -21,7 +22,7 @@ const Select = (props) => {
             </option>
           );
         })}
-      </select>
+      </StyledSelect>
     </label>
   );
 };

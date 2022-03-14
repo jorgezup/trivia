@@ -13,6 +13,7 @@ const StyledConfigForm = styled.form`
   box-shadow: 8px 8px 40px 10px rgb(0 0 0 / 50%);
   border: 3px solid var(--purple-border);
   border-radius: 20px;
+  font-size: 16px;
 
   input {
     width: 30%;

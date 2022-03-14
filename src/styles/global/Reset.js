@@ -9,6 +9,12 @@ const Reset = createGlobalStyle`
     letter-spacing: 1.4px;
   }
 
+  label {
+    color: var(--yellow-secondary);
+    text-shadow: -1px 1px 0 var(--yellow-primary);
+    font-size: 15px;
+  }
+
   :root {
     --purple-primary: #6159C6;
     --purple-secondary: #423C96;
@@ -20,7 +26,7 @@ const Reset = createGlobalStyle`
     --yellow-primary: #FFBE55;
     --yellow-secondary: #FFE05F;
     --green-primary: #88f0c0;
-    --green-second: #389067;
+    --green-secondary: #389067;
     --red-primary: #E02D5C;
     --icon-disabled: #8684ce;
   }

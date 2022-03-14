@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-const Title = styled.h1`
-  font-size: 2rem;
+const Logo = styled.h1`
+  font-size: 2.5rem;
   color: var(--green-primary);
   text-transform: uppercase;
   text-shadow: -1px 2px 0 var(--green-secondary);
 `;
 
-export default Title;
+export default Logo;

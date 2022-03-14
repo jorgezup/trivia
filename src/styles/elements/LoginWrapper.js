@@ -9,6 +9,7 @@ const LoginWrapper = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 10px;
   gap: 10px;
   background-color: var(--purple-primary);
   box-shadow: 8px 8px 40px 10px rgb(0 0 0 / 50%);

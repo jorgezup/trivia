@@ -15,7 +15,7 @@ const LoginForm = ({
   <StyledForm onSubmit={ handleSubmit }>
     <Input
       type="text"
-      label="Nome"
+      label="Name"
       value={ name }
       name="name"
       onChange={ handleChange }
