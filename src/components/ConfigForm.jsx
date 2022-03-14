@@ -1,13 +1,16 @@
-import { any, string, func } from 'prop-types';
-import React from 'react';
-import Select from './Select';
-import Input from './Input';
-import Button from './Button';
+import { any, string, func } from 'prop-types'
+import React from 'react'
+import Select from './Select'
+import Input from './Input'
+import Button from './Button'
+import { FaSave } from 'react-icons/fa'
 import {
   CATEGORY_OPTIONS,
   DIFFICULTY_OPTIONS,
   TYPE_OPTIONS,
-} from '../utils/constants';
+} from '../utils/constants'
+
+import StyledConfigForm from '../styles/elements/StyledConfigForm'
 
 const ConfigForm = ({
   amount,
@@ -17,41 +20,43 @@ const ConfigForm = ({
   handleChange,
   handleSubmit,
 }) => (
-  <form onSubmit={ handleSubmit }>
+  <StyledConfigForm onSubmit={handleSubmit}>
     <Input
-      type="number"
-      label="Amount"
-      name="amount"
-      onChange={ handleChange }
-      value={ amount }
+      type='number'
+      label='Amount'
+      name='amount'
+      onChange={handleChange}
+      value={amount}
     />
     <Select
-      id="category"
-      label="Category"
-      name="category"
-      options={ CATEGORY_OPTIONS }
-      onChange={ handleChange }
-      value={ category }
+      id='category'
+      label='Category'
+      name='category'
+      options={CATEGORY_OPTIONS}
+      onChange={handleChange}
+      value={category}
     />
     <Select
-      id="difficulty"
-      label="Difficulty"
-      name="difficulty"
-      options={ DIFFICULTY_OPTIONS }
-      onChange={ handleChange }
-      value={ difficulty }
+      id='difficulty'
+      label='Difficulty'
+      name='difficulty'
+      options={DIFFICULTY_OPTIONS}
+      onChange={handleChange}
+      value={difficulty}
     />
     <Select
-      id="type"
-      label="Type"
-      name="type"
-      options={ TYPE_OPTIONS }
-      onChange={ handleChange }
-      value={ type }
+      id='type'
+      label='Type'
+      name='type'
+      options={TYPE_OPTIONS}
+      onChange={handleChange}
+      value={type}
     />
-    <Button type="submit" value="Save" />
-  </form>
-);
+    <Button type='submit' value={<FaSave />}>
+      Save
+    </Button>
+  </StyledConfigForm>
+)
 
 ConfigForm.propTypes = {
   amount: any,
@@ -60,6 +65,6 @@ ConfigForm.propTypes = {
   handleChange: func,
   handleSubmit: func,
   type: string,
-}.isRequired;
+}.isRequired
 
-export default ConfigForm;
+export default ConfigForm
