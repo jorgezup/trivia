@@ -18,6 +18,8 @@ const Reset = createGlobalStyle`
     --blue-tertiary: #332d7a;
     --yellow-primary: #FFBE55;
     --yellow-secondary: #FFE05F;
+    --green-primary: #88f0c0;
+    --green-second: #389067;
     --red-primary: #E02D5C;
     --icon-disabled: #8684ce;
   }

@@ -4,6 +4,8 @@ import { FaHome } from 'react-icons/fa';
 import Button from '../components/Button';
 import { getRankingFromLocalStorage } from '../services/localStorage/ranking';
 import { formatUrl } from '../utils/helpers';
+import MainWrapper from '../styles/elements/MainWrapper';
+import Title from '../styles/elements/RankingWrapper';
 
 class Ranking extends Component {
   state = {
@@ -22,14 +24,16 @@ class Ranking extends Component {
     const { ranking } = this.state;
     console.log(ranking);
     return (
-      <div>
-        <h1 data-testid="ranking-title">Ranking</h1>
+      <MainWrapper>
+        <Title data-testid="ranking-title">Ranking</Title>
         <Button
           data-testid="btn-go-home"
           onClick={ () => this.goHome(history) }
           type="button"
           value={ <FaHome /> }
-        />
+        >
+          Home
+        </Button>
         <ol>
           {ranking
             .sort((a, b) => b.score - a.score)
@@ -41,7 +45,7 @@ class Ranking extends Component {
               </li>
             ))}
         </ol>
-      </div>
+      </MainWrapper>
     );
   }
 }
