@@ -30,6 +30,7 @@ const Reset = createGlobalStyle`
     background-image: url('https://stopots.com/images/background.png');
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 100% 100%;
   }
 `;
 
