@@ -5,7 +5,10 @@ import Button from '../components/Button';
 import { getRankingFromLocalStorage } from '../services/localStorage/ranking';
 import { formatUrl } from '../utils/helpers';
 import MainWrapper from '../styles/elements/MainWrapper';
-import Title from '../styles/elements/RankingWrapper';
+import Title from '../styles/elements/Title';
+import StyledList from '../styles/elements/StyledList';
+import StyledImage from '../styles/elements/StyledImage';
+import RankingWrapper from '../styles/elements/RankingWrapper';
 
 class Ranking extends Component {
   state = {
@@ -26,25 +29,29 @@ class Ranking extends Component {
     return (
       <MainWrapper>
         <Title data-testid="ranking-title">Ranking</Title>
-        <Button
-          data-testid="btn-go-home"
-          onClick={ () => this.goHome(history) }
-          type="button"
-          value={ <FaHome /> }
-        >
-          Home
-        </Button>
-        <ol>
-          {ranking
-            .sort((a, b) => b.score - a.score)
-            .map(({ name, score, picture }, index) => (
-              <li key={ picture }>
-                <img src={ formatUrl(picture) } alt="profile" />
-                <span data-testid={ `player-name-${index}` }>{name}</span>
-                <span data-testid={ `player-score-${index}` }>{score}</span>
-              </li>
-            ))}
-        </ol>
+        <RankingWrapper>
+          <StyledList>
+            {ranking
+              .sort((a, b) => b.score - a.score)
+              .map(({ name, score, picture }, index) => (
+                <div key={ picture }>
+                  <li>
+                    <StyledImage src={ formatUrl(picture) } alt="profile" />
+                    <span data-testid={ `player-name-${index}` }>{name}</span>
+                    <span data-testid={ `player-score-${index}` }>{score}</span>
+                  </li>
+                </div>
+              ))}
+          </StyledList>
+          <Button
+            data-testid="btn-go-home"
+            onClick={ () => this.goHome(history) }
+            type="button"
+            value={ <FaHome /> }
+          >
+            Home
+          </Button>
+        </RankingWrapper>
       </MainWrapper>
     );
   }

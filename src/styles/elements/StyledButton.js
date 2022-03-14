@@ -16,6 +16,7 @@ const StyledButton = styled.button`
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
+  transition: .2s transform ease-in-out;
 
   & svg {
     color: white;
@@ -25,7 +26,8 @@ const StyledButton = styled.button`
     width: 115px;
   }
 
-  &:hover {
+  &:hover:enabled {
+    transform: scale(1.05); 
     background-position: -181px -308px;
   }
 
