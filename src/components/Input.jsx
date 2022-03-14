@@ -1,19 +1,20 @@
-import { string } from 'prop-types';
-import React from 'react';
+import { string } from 'prop-types'
+import React from 'react'
+import StyledInput from '../styles/elements/StyledInput'
 
 const Input = (props) => {
-  const { name, label } = props;
+  const { name, label } = props
   return (
-    <label htmlFor={ name }>
+    <label htmlFor={name}>
       {label}
-      <input { ...props } />
+      <StyledInput {...props} />
     </label>
-  );
-};
+  )
+}
 
 Input.propTypes = {
   label: string,
   name: string,
-}.isRequired;
+}.isRequired
 
-export default Input;
+export default Input
