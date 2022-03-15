@@ -6,6 +6,7 @@ export const QuestionTitleSection = styled.section`
   align-items: center;
   justify-content: center;
   gap: 10px;
+  font-size: 16px;
 
   background-color: var(--purple-primary);
   box-shadow: 8px 8px 40px 10px rgb(0 0 0 / 50%);
@@ -22,8 +23,8 @@ export const QuestionTitleSection = styled.section`
   }
 
   & p:first-child {
-    font-size: 14px;
-    color: var(--yellow-primary);
+    color: var(--yellow-secondary);
+    text-shadow: -1px 1px 0 var(--yellow-primary);
   }
 `;
 
@@ -57,13 +58,13 @@ export const QuestionSection = styled.section`
     }
 
     &:hover {
-      opacity: 0.8;
+      opacity: 0.9;
       background: url('https://stopots.com/images/sprite.png');
       background-position: 0px -545px !important;
     }
 
     &:disabled {
-      opacity: 0.4;
+      opacity: 0.7;
       background: url('https://stopots.com/images/sprite.png');
       background-position: 0px -545px !important;
     }

@@ -9,7 +9,8 @@ export const SectionScore = styled.section`
 
   h2 {
     margin-bottom: 30px;
-    color: var(--yellow-primary);
+    color: var(--yellow-secondary);
+    text-shadow: -1px 1px 0 var(--yellow-primary);
   }
 
   span {

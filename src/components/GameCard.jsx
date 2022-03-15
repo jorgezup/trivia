@@ -25,7 +25,7 @@ const GameCard = ({
     default: {
       color: 'white',
     },
-    handleBorder: (option) => ({
+    setStyle: (option) => ({
       color:
         correctOption === option
           ? 'var(--green-primary)'
@@ -63,7 +63,7 @@ const GameCard = ({
             }
             onClick={ () => handleOptionClick(option) }
             style={
-              isAlreadyAnswer ? styles.handleBorder(option) : styles.default
+              isAlreadyAnswer ? styles.setStyle(option) : styles.default
             }
             disabled={ isOptionsDisabled }
 

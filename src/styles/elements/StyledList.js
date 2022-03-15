@@ -35,6 +35,8 @@ const StyledList = styled.ol`
     background-color: var(--purple-primary);
   
     & span:last-of-type {
+      color: var(--yellow-secondary);
+      text-shadow: -1px 1px 0 var(--yellow-primary);
       margin-right: 5px;
     }
   }

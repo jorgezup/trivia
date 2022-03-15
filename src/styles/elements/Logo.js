@@ -5,6 +5,7 @@ const Logo = styled.h1`
   color: var(--green-primary);
   text-transform: uppercase;
   text-shadow: -1px 2px 0 var(--green-secondary);
+  letter-spacing: 3px;
 `;
 
 export default Logo;

@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const HeaderContainer = styled.header`
-  width: 940px;
+  width: 840px;
+  height: 100px;
 
   margin: 0 auto;
   margin-top: 20px;
@@ -17,9 +18,15 @@ const HeaderContainer = styled.header`
   border-radius: 20px;
 
   background-color: var(--purple-primary);
+  box-shadow: 8px 8px 40px 10px rgb(0 0 0 / 50%);
 
   span {
     font-size: 18px;
+  }
+
+  span:last-child {
+    color: var(--yellow-secondary);
+    text-shadow: -1px 1px 0 var(--yellow-primary);
   }
 `;
 
