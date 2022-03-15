@@ -1,4 +1,5 @@
 export const EXPIRED_TOKEN_CODE = 3;
+export const SECONDS_LIMIT_ALARM = 3;
 export const TOTAL_TIME = 30_000;
 export const DECREASE_TIME = 1_000;
 export const HALF_TERM = 0.5;

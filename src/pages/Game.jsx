@@ -6,11 +6,12 @@ import { getQuestionsThunk } from '../actions/game';
 import GameCard from '../components/GameCard';
 import Loading from '../components/Loading';
 import { calculateQuestionScore, shuffleArray } from '../utils/helpers';
-import { DECREASE_TIME, TOTAL_TIME } from '../utils/constants';
+import { DECREASE_TIME, SECONDS_LIMIT_ALARM, TOTAL_TIME } from '../utils/constants';
 import { updatePlayerStatsAction } from '../actions/player';
 import { saveRankingInLocalStorage } from '../services/localStorage/ranking';
 import Layout from '../components/Layout';
 import MusicBackground from '../music/BoxCat-Games-Battle-Boss.mp3';
+import Alarm from '../music/Ringing Alarm.mp3';
 
 class Game extends Component {
   state = {
@@ -21,6 +22,8 @@ class Game extends Component {
     shuffledOptions: [],
     incorrectOptions: [],
     currQuestion: {},
+    isPlaying: true,
+    song: MusicBackground,
   }
 
   async componentDidMount() {
@@ -68,6 +71,11 @@ class Game extends Component {
       this.setState({
         seconds: seconds - 1,
       });
+      if (seconds <= SECONDS_LIMIT_ALARM) {
+        this.setState({
+          song: Alarm,
+        });
+      }
     } else {
       clearInterval(this.timer);
     }
@@ -114,6 +122,7 @@ class Game extends Component {
         seconds: 30,
         isAlreadyAnswer: false,
         isOptionsDisabled: false,
+        song: MusicBackground,
       });
     } else {
       saveRankingInLocalStorage({ name, score, picture: gravatarEmail });
@@ -127,16 +136,25 @@ class Game extends Component {
     this.disableOptionButton();
   }
 
+  stopSound = () => {
+    const { isPlaying } = this.state;
+    this.setState({
+      isPlaying: !isPlaying,
+    });
+  }
+
   render() {
     const {
       game: { isFetching, error, questions },
     } = this.props;
+    const { isPlaying, song } = this.state;
     return (
       <Layout>
         <Sound
-          url={ MusicBackground }
-          playStatus={ Sound.status.PLAYING }
+          url={ song }
+          playStatus={ isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED }
           volume={ 8 }
+          loop={ () => true }
         />
         {error && <div>{error}</div>}
         {isFetching && <Loading />}
@@ -145,6 +163,7 @@ class Game extends Component {
             { ...this.state }
             handleOptionClick={ this.handleOptionClick }
             handleNextQuestionClick={ this.handleNextQuestionClick }
+            stopSound={ this.stopSound }
           />
         )}
       </Layout>

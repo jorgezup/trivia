@@ -2,6 +2,7 @@
 import { arrayOf, string, shape } from 'prop-types';
 import React from 'react';
 import { GrFormNext } from 'react-icons/gr';
+import { GiSpeaker, GiSpeakerOff } from 'react-icons/gi';
 import Button from './Button';
 import GameWrapper from '../styles/elements/GameWrapper';
 import StyledProgress from '../styles/elements/StyledProgress';
@@ -20,6 +21,8 @@ const GameCard = ({
   seconds,
   isOptionsDisabled,
   handleNextQuestionClick,
+  stopSound,
+  isPlaying,
 }) => {
   const styles = {
     default: {
@@ -49,6 +52,15 @@ const GameCard = ({
           data-testid="question-text"
           dangerouslySetInnerHTML={ createMarkup(currQuestion.question) }
         />
+        <button
+          type="button"
+          isPlaying={ isPlaying }
+          onClick={ stopSound }
+          style={ isPlaying ? { color: 'white' } : { color: 'red !important' } }
+        >
+          {isPlaying ? <GiSpeaker /> : <GiSpeakerOff />}
+
+        </button>
       </QuestionTitleSection>
       <QuestionSection data-testid="answer-options">
         {shuffledOptions.map((option, index) => (
@@ -66,7 +78,6 @@ const GameCard = ({
               isAlreadyAnswer ? styles.setStyle(option) : styles.default
             }
             disabled={ isOptionsDisabled }
-
           >
             { option }
           </Button>

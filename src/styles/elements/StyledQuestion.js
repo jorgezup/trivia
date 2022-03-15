@@ -26,6 +26,19 @@ export const QuestionTitleSection = styled.section`
     color: var(--yellow-secondary);
     text-shadow: -1px 1px 0 var(--yellow-primary);
   }
+
+  button {
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    border: none;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      color: var(--purple-tertiary);
+    }
+  }
 `;
 
 export const QuestionSection = styled.section`
