@@ -36,8 +36,10 @@ export const QuestionSection = styled.section`
     color: #f6f6f6 !important;
     align-self: center;
     justify-self: center;
-    background-position: 10px -489px;
-    width: 430px;
+    background: url('https://stopots.com/images/sprite.png');
+    background-position: 0px -545px;
+    width: 572px;
+    height: 73px;
     transition: all 0.2s;
 
     & strong {
@@ -46,12 +48,14 @@ export const QuestionSection = styled.section`
 
     &:hover {
       opacity: 0.8;
-      background-position: 10px -489px !important;
+      background: url('https://stopots.com/images/sprite.png');
+      background-position: 0px -545px !important;
     }
 
     &:disabled {
       opacity: 0.4;
-      background-position: 10px -489px !important;
+      background: url('https://stopots.com/images/sprite.png');
+      background-position: 0px -545px !important;
     }
   }
 
