@@ -4,6 +4,7 @@ import React from 'react';
 import { GrFormNext } from 'react-icons/gr';
 import Button from './Button';
 import GameWrapper from '../styles/elements/GameWrapper';
+import StyledProgress from '../styles/elements/StyledProgress';
 import {
   QuestionTitleSection,
   QuestionSection,
@@ -38,7 +39,7 @@ const GameCard = ({
 
   return (
     <GameWrapper>
-      <h1>{seconds}</h1>
+      <StyledProgress value={ seconds } max="30" />
       <QuestionTitleSection>
         <p
           data-testid="question-category"
