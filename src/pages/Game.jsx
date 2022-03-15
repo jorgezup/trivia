@@ -1,6 +1,7 @@
 import { bool, string, func, arrayOf, object } from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Sound from 'react-sound';
 import { getQuestionsThunk } from '../actions/game';
 import GameCard from '../components/GameCard';
 import Loading from '../components/Loading';
@@ -9,6 +10,7 @@ import { DECREASE_TIME, TOTAL_TIME } from '../utils/constants';
 import { updatePlayerStatsAction } from '../actions/player';
 import { saveRankingInLocalStorage } from '../services/localStorage/ranking';
 import Layout from '../components/Layout';
+import MusicBackground from '../music/BoxCat-Games-Battle-Boss.mp3';
 
 class Game extends Component {
   state = {
@@ -131,6 +133,11 @@ class Game extends Component {
     } = this.props;
     return (
       <Layout>
+        <Sound
+          url={ MusicBackground }
+          playStatus={ Sound.status.PLAYING }
+          volume={ 8 }
+        />
         {error && <div>{error}</div>}
         {isFetching && <Loading />}
         {questions.length > 0 && (
