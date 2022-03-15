@@ -1,19 +1,20 @@
-import { string, number, shape } from 'prop-types';
-import React from 'react';
-import { connect } from 'react-redux';
-import { formatUrl } from '../utils/helpers';
+import { string, number, shape } from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
+import { formatUrl } from '../utils/helpers'
+import HeaderContainer from '../styles/elements/StyledHeader'
 
 const Header = ({ player }) => (
-  <header>
+  <HeaderContainer>
     <img
-      src={ formatUrl(player.gravatarEmail) }
-      alt="profile"
-      data-testid="header-profile-picture"
+      src={formatUrl(player.gravatarEmail)}
+      alt='profile'
+      data-testid='header-profile-picture'
     />
-    <span data-testid="header-player-name">{player.name}</span>
-    <span data-testid="header-score">{player.score}</span>
-  </header>
-);
+    <span data-testid='header-player-name'>{player.name}</span>
+    <span data-testid='header-score'>{player.score}</span>
+  </HeaderContainer>
+)
 
 Header.propTypes = {
   player: shape({
@@ -21,9 +22,9 @@ Header.propTypes = {
     name: string,
     score: number,
   }).isRequired,
-};
+}
 const mapStateToProps = ({ player }) => ({
   player,
-});
+})
 
-export default connect(mapStateToProps, null)(Header);
+export default connect(mapStateToProps, null)(Header)

@@ -31,12 +31,22 @@ const GameCard = ({
     }),
   };
 
+  const createMarkup = (html) => ({
+    __html: html,
+  });
+
   return (
     <GameWrapper>
       <h1>{seconds}</h1>
       <QuestionTitleSection>
-        <p data-testid="question-category">{currQuestion.category}</p>
-        <p data-testid="question-text">{currQuestion.question}</p>
+        <p
+          data-testid="question-category"
+          dangerouslySetInnerHTML={ createMarkup(currQuestion.category) }
+        />
+        <p
+          data-testid="question-text"
+          dangerouslySetInnerHTML={ createMarkup(currQuestion.question) }
+        />
       </QuestionTitleSection>
       <QuestionSection data-testid="answer-options">
         {shuffledOptions.map((option, index) => (

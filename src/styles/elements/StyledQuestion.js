@@ -13,10 +13,11 @@ export const QuestionTitleSection = styled.section`
   border-radius: 20px;
 
   padding: 20px;
-  width: 470px;
+  width: 618px;
 
   margin: 20px 0;
 
+<<<<<<< HEAD
   & p {
     text-align: justify;
   }
@@ -26,6 +27,18 @@ export const QuestionTitleSection = styled.section`
     color: var(--yellow-primary);
   }
 `;
+=======
+  p:first-of-type{
+    font-size: 18px;
+    color: var(--yellow-secondary);
+    margin-bottom: 10px;
+  }
+
+    p+p {
+    font-size: 18px;
+  }
+`
+>>>>>>> feat-layout
 
 export const QuestionSection = styled.section`
   display: flex;

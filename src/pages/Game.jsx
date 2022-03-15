@@ -1,17 +1,14 @@
 import { bool, string, func, arrayOf, object } from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Header from '../components/Header';
 import { getQuestionsThunk } from '../actions/game';
 import GameCard from '../components/GameCard';
 import Loading from '../components/Loading';
 import { calculateQuestionScore, shuffleArray } from '../utils/helpers';
-import {
-  DECREASE_TIME,
-  TOTAL_TIME,
-} from '../utils/constants';
+import { DECREASE_TIME, TOTAL_TIME } from '../utils/constants';
 import { updatePlayerStatsAction } from '../actions/player';
 import { saveRankingInLocalStorage } from '../services/localStorage/ranking';
+import Layout from '../components/Layout';
 
 class Game extends Component {
   state = {
@@ -22,7 +19,7 @@ class Game extends Component {
     shuffledOptions: [],
     incorrectOptions: [],
     currQuestion: {},
-  };
+  }
 
   async componentDidMount() {
     const { getQuestions } = this.props;
@@ -52,8 +49,8 @@ class Game extends Component {
     const correctOption = currQuestion.correct_answer;
     const options = [correctOption, ...currQuestion.incorrect_answers];
     const shuffledOptions = shuffleArray(options);
-    const incorrectOptions = shuffledOptions.filter((option) => currQuestion
-      .incorrect_answers.includes(option));
+    const incorrectOptions = shuffledOptions
+      .filter((option) => currQuestion.incorrect_answers.includes(option));
 
     this.setState({
       correctOption,
@@ -61,7 +58,7 @@ class Game extends Component {
       incorrectOptions,
       currQuestion,
     });
-  };
+  }
 
   decrementTime = () => {
     const { seconds } = this.state;
@@ -72,23 +69,23 @@ class Game extends Component {
     } else {
       clearInterval(this.timer);
     }
-  };
+  }
 
   disableOptionButton = () => {
     this.timeOut = setTimeout(() => {
       this.setState({ isOptionsDisabled: true, isAlreadyAnswer: true });
     }, TOTAL_TIME);
-  };
+  }
 
   setTimer = () => {
     this.timer = setInterval(() => {
       this.decrementTime();
     }, DECREASE_TIME);
-  };
+  }
 
   onPause = () => {
     clearInterval(this.timer);
-  };
+  }
 
   handleOptionClick = (option) => {
     const { seconds, correctOption, currQuestion } = this.state;
@@ -120,21 +117,20 @@ class Game extends Component {
       saveRankingInLocalStorage({ name, score, picture: gravatarEmail });
       history.push('/feedback');
     }
-  };
+  }
 
   startGame = () => {
     this.shuffleCurrentQuestion();
     this.setTimer();
     this.disableOptionButton();
-  };
+  }
 
   render() {
     const {
       game: { isFetching, error, questions },
     } = this.props;
     return (
-      <>
-        <Header />
+      <Layout>
         {error && <div>{error}</div>}
         {isFetching && <Loading />}
         {questions.length > 0 && (
@@ -144,7 +140,7 @@ class Game extends Component {
             handleNextQuestionClick={ this.handleNextQuestionClick }
           />
         )}
-      </>
+      </Layout>
     );
   }
 }
