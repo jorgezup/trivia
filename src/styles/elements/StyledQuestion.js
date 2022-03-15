@@ -1,10 +1,11 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const QuestionTitleSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 
   background-color: var(--purple-primary);
   box-shadow: 8px 8px 40px 10px rgb(0 0 0 / 50%);
@@ -15,7 +16,16 @@ export const QuestionTitleSection = styled.section`
   width: 470px;
 
   margin: 20px 0;
-`
+
+  & p {
+    text-align: justify;
+  }
+
+  & p:first-child {
+    font-size: 14px;
+    color: var(--yellow-primary);
+  }
+`;
 
 export const QuestionSection = styled.section`
   display: flex;
@@ -65,4 +75,4 @@ export const QuestionSection = styled.section`
       color: var(--purple-primary);
     }
   }
-`
+`;

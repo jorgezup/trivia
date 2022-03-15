@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
-const MainWrapper = styled.main`
-  width: 100vw;
-  height: 100vh;
+const GameWrapper = styled.main`
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 50px;
 `;
 
-export default MainWrapper;
+export default GameWrapper;

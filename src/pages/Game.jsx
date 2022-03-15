@@ -99,7 +99,7 @@ class Game extends Component {
       const questionScore = calculateQuestionScore(seconds, difficulty);
       updatePlayerStats(questionScore);
     }
-    this.setState({ isAlreadyAnswer: true });
+    this.setState({ isAlreadyAnswer: true, isOptionsDisabled: true });
   };
 
   handleNextQuestionClick = () => {

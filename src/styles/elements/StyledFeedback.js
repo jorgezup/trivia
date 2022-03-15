@@ -1,23 +1,27 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const SectionScore = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 40px 0;
+  margin: 20px 0;
 
   h2 {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    color: var(--yellow-primary);
   }
 
   span {
     font-size: 16px;
   }
-`
+`;
 
 export const SectionButtons = styled.section`
   display: flex;
-  width: 470px;
-  justify-content: space-evenly;
-`
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+`;

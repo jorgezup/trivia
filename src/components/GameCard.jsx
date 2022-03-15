@@ -1,12 +1,12 @@
-import { arrayOf, string, shape } from 'prop-types'
-import React from 'react'
-import { GrFormNext } from 'react-icons/gr'
-import Button from './Button'
-import MainWrapper from '../styles/elements/MainWrapper'
+import { arrayOf, string, shape } from 'prop-types';
+import React from 'react';
+import { GrFormNext } from 'react-icons/gr';
+import Button from './Button';
+import GameWrapper from '../styles/elements/GameWrapper';
 import {
   QuestionTitleSection,
   QuestionSection,
-} from '../styles/elements/StyledQuestion'
+} from '../styles/elements/StyledQuestion';
 
 const GameCard = ({
   shuffledOptions,
@@ -29,31 +29,31 @@ const GameCard = ({
           ? '3px solid rgb(6, 240, 15)'
           : '3px solid rgb(255, 0, 0)',
     }),
-  }
+  };
 
   return (
-    <MainWrapper>
+    <GameWrapper>
       <h1>{seconds}</h1>
       <QuestionTitleSection>
-        <p data-testid='question-category'>{currQuestion.category}</p>
-        <p data-testid='question-text'>{currQuestion.question}</p>
+        <p data-testid="question-category">{currQuestion.category}</p>
+        <p data-testid="question-text">{currQuestion.question}</p>
       </QuestionTitleSection>
-      <QuestionSection data-testid='answer-options'>
+      <QuestionSection data-testid="answer-options">
         {shuffledOptions.map((option, index) => (
           <Button
-            key={index}
-            type='button'
-            value={index + 1}
+            key={ index }
+            type="button"
+            value={ index + 1 }
             data-testid={
               incorrectOptions.includes(option)
                 ? `wrong-answer-${incorrectOptions.indexOf(option)}`
                 : 'correct-answer'
             }
-            onClick={() => handleOptionClick(option)}
+            onClick={ () => handleOptionClick(option) }
             style={
               isAlreadyAnswer ? styles.handleBorder(option) : styles.default
             }
-            disabled={isOptionsDisabled}
+            disabled={ isOptionsDisabled }
           >
             {option}
           </Button>
@@ -61,17 +61,17 @@ const GameCard = ({
       </QuestionSection>
       {isAlreadyAnswer && (
         <Button
-          type='button'
-          onClick={handleNextQuestionClick}
-          value={<GrFormNext />}
-          data-testid='btn-next'
+          type="button"
+          onClick={ handleNextQuestionClick }
+          value={ <GrFormNext /> }
+          data-testid="btn-next"
         >
           Next
         </Button>
       )}
-    </MainWrapper>
-  )
-}
+    </GameWrapper>
+  );
+};
 
 GameCard.propTypes = {
   data: shape({
@@ -80,6 +80,6 @@ GameCard.propTypes = {
     incorrect_answers: arrayOf(string),
     question: string,
   }),
-}.isRequired
+}.isRequired;
 
-export default GameCard
+export default GameCard;
