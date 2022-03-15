@@ -1,11 +1,10 @@
-import { shape, func, object } from 'prop-types'
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { setGameSettingsAction } from '../actions/settings'
-import ConfigForm from '../components/ConfigForm'
-import MainWrapper from '../styles/elements/MainWrapper'
-import Title from '../styles/elements/Title'
-import Layout from '../components/Layout'
+import { shape, func, object } from 'prop-types';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { setGameSettingsAction } from '../actions/settings';
+import ConfigForm from '../components/ConfigForm';
+import { Wrapper } from '../styles/elements/LoginWrapper';
+import Title from '../styles/elements/Title';
 
 class Config extends Component {
   state = {
@@ -16,34 +15,32 @@ class Config extends Component {
   }
 
   componentDidMount() {
-    const { settings } = this.props
-    this.setState({ ...settings })
+    const { settings } = this.props;
+    this.setState({ ...settings });
   }
 
   handleChange = ({ target: { name, value } }) => {
-    this.setState({ [name]: value })
+    this.setState({ [name]: value });
   }
 
   handleSubmit = (e) => {
-    e.preventDefault()
-    const { history, setGameSettings } = this.props
-    setGameSettings(this.state)
-    history.push('/')
+    e.preventDefault();
+    const { history, setGameSettings } = this.props;
+    setGameSettings(this.state);
+    history.push('/');
   }
 
   render() {
     return (
-      <Layout>
-        <MainWrapper>
-          <Title data-testid='settings-title'>Settings</Title>
-          <ConfigForm
-            {...this.state}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-          />
-        </MainWrapper>
-      </Layout>
-    )
+      <Wrapper>
+        <Title data-testid="settings-title">Settings</Title>
+        <ConfigForm
+          { ...this.state }
+          handleChange={ this.handleChange }
+          handleSubmit={ this.handleSubmit }
+        />
+      </Wrapper>
+    );
   }
 }
 
@@ -53,12 +50,12 @@ Config.propTypes = {
   }),
   setGameSettings: func,
   settings: object,
-}.isRequired
+}.isRequired;
 
-const mapStateToProps = ({ settings }) => ({ settings })
+const mapStateToProps = ({ settings }) => ({ settings });
 
 const mapDispatchToProps = (dispatch) => ({
   setGameSettings: (settings) => dispatch(setGameSettingsAction(settings)),
-})
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Config)
+export default connect(mapStateToProps, mapDispatchToProps)(Config);
