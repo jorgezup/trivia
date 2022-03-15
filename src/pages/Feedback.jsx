@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 import Button from '../components/Button';
 import { EXPIRED_TOKEN_CODE as MIN_NUMBER_OF_ASSERTIONS } from '../utils/constants';
 import { SectionScore, SectionButtons } from '../styles/elements/StyledFeedback';
-import MainWrapper from '../styles/elements/MainWrapper';
 import Title from '../styles/elements/Title';
 import Layout from '../components/Layout';
+import FeedbackWrapper from '../styles/elements/FeedbackWrapper';
 
 const playAgain = ({ push }) => push('/');
 
@@ -17,7 +17,7 @@ const Feedback = ({ history, player }) => {
   const { assertions, score } = player;
   return (
     <Layout>
-      <MainWrapper>
+      <FeedbackWrapper>
         <Title>Feedback</Title>
         <SectionScore>
           <h2 data-testid="feedback-text">
@@ -48,7 +48,7 @@ const Feedback = ({ history, player }) => {
             Ranking
           </Button>
         </SectionButtons>
-      </MainWrapper>
+      </FeedbackWrapper>
     </Layout>
   );
 };

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import { arrayOf, string, shape } from 'prop-types';
 import React from 'react';
 import { GrFormNext } from 'react-icons/gr';
@@ -21,13 +22,13 @@ const GameCard = ({
 }) => {
   const styles = {
     default: {
-      border: 'none',
+      color: 'white',
     },
     handleBorder: (option) => ({
-      border:
+      color:
         correctOption === option
-          ? '3px solid rgb(6, 240, 15)'
-          : '3px solid rgb(255, 0, 0)',
+          ? 'var(--green-primary)'
+          : 'var(--red-primary)',
     }),
   };
 
@@ -64,8 +65,9 @@ const GameCard = ({
               isAlreadyAnswer ? styles.handleBorder(option) : styles.default
             }
             disabled={ isOptionsDisabled }
+
           >
-            {option}
+            { option }
           </Button>
         ))}
       </QuestionSection>

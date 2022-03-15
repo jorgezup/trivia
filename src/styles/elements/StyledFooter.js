@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const FooterContainer = styled.footer`
   height: 48px;
@@ -6,5 +6,8 @@ const FooterContainer = styled.footer`
   line-height: 48px;
   color: var(--purple-tertinary);
   border-top: 2px solid var(--purple-border);
-`
-export default FooterContainer
+
+  background-color: var(--purple-primary);
+
+`;
+export default FooterContainer;

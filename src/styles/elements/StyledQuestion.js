@@ -17,7 +17,6 @@ export const QuestionTitleSection = styled.section`
 
   margin: 20px 0;
 
-<<<<<<< HEAD
   & p {
     text-align: justify;
   }
@@ -27,18 +26,6 @@ export const QuestionTitleSection = styled.section`
     color: var(--yellow-primary);
   }
 `;
-=======
-  p:first-of-type{
-    font-size: 18px;
-    color: var(--yellow-secondary);
-    margin-bottom: 10px;
-  }
-
-    p+p {
-    font-size: 18px;
-  }
-`
->>>>>>> feat-layout
 
 export const QuestionSection = styled.section`
   display: flex;
@@ -56,7 +43,7 @@ export const QuestionSection = styled.section`
   margin-bottom: 20px;
 
   button {
-    color: #f6f6f6 !important;
+    /* color: #f6f6f6 !important; */
     align-self: center;
     justify-self: center;
     background: url('https://stopots.com/images/sprite.png');

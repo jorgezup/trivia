@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const HeaderContainer = styled.header`
   width: 940px;
@@ -9,20 +9,18 @@ const HeaderContainer = styled.header`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 
   padding: 16px 8px;
 
   border: 2px solid var(--purple-border);
   border-radius: 20px;
 
-  img {
-    border-radius: 100%;
-  }
+  background-color: var(--purple-primary);
 
   span {
     font-size: 18px;
   }
-`
+`;
 
-export default HeaderContainer
+export default HeaderContainer;

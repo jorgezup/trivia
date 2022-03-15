@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 const FeedbackWrapper = styled.section`
-  width: 100%;
-  max-width: 350px;
+  width: 350px;
   padding: 40px;
   height: auto;
   display: flex;
