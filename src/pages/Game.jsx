@@ -158,7 +158,7 @@ class Game extends Component {
         />
         {error && <div>{error}</div>}
         {isFetching && <Loading />}
-        {questions.length > 0 && (
+        {!isFetching && questions.length > 0 && (
           <GameCard
             { ...this.state }
             handleOptionClick={ this.handleOptionClick }

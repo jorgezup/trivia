@@ -31,8 +31,7 @@ export const getQuestionsThunk = () => async (dispatch, getState) => {
   try {
     dispatch(requestApiAction());
     let response = {};
-    const { token } = getState();
-    const { settings } = getState();
+    const { token, settings } = getState();
     response = await fetchTriviaApi(token, settings);
     if (response.response_code === EXPIRED_TOKEN_CODE) {
       response = await getNewToken(dispatch, getState, settings);
