@@ -27,8 +27,18 @@ Nesse projeto, você será capaz de:
 
 ---
 
-#Produção
+# Produção
 
 Projeto publicado na Vercel
 
 https://trivia-react-redux-xi.vercel.app/
+
+![Screenshot from 2022-05-03 10-48-43](https://user-images.githubusercontent.com/42441349/166479824-9664325e-631a-4fcd-bf04-6ac3bb658b8c.png)
+
+![Screenshot from 2022-05-03 10-49-00](https://user-images.githubusercontent.com/42441349/166479852-42810cd9-f485-41c3-b447-a7ec20d55db1.png)
+
+
+
+
+
+
